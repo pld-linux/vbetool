@@ -1,0 +1,15 @@
+--- vbetool-0.4/Makefile.am.orig	2006-03-07 15:35:57.000000000 +0100
++++ vbetool-0.4/Makefile.am	2006-03-07 15:36:16.000000000 +0100
+@@ -6,10 +6,11 @@
+ 
+ if WITH_X86EMU
+ x86 = thunk.c x86-common.c
+-vbetool_LDADD = x86emu/libx86emu.a
++vbetool_LDADD = x86emu/libx86emu.a -lpci
+ else
+ x86 = lrmi.c x86-common.c
+ x86lib = ""
++vbetool_LDADD = -lpci
+ endif
+ 
+ man_MANS = vbetool.1
