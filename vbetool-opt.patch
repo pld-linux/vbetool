@@ -1,0 +1,15 @@
+--- vbetool-0.4/x86emu/makefile.linux.orig	2005-07-21 19:14:56.000000000 +0200
++++ vbetool-0.4/x86emu/makefile.linux	2006-03-12 21:16:11.698832500 +0100
+@@ -50,10 +50,10 @@
+ CFLAGS = -D__DRIVER__ -DFORCE_POST -D_CEXPORT= -DNO_LONG_LONG -DDEBUG
+ 
+ .c.o:
+-	gcc -g -O -Wall -c $(CFLAGS) $(INCS) $*.c
++	$(CC) $(OPT) -Wall -c $(CFLAGS) $(INCS) $*.c
+ 
+ .cpp.o:
+-	gcc -c $(CFLAGS) $(INCS) $*.cpp
++	$(CC) -c $(CFLAGS) $(INCS) $*.cpp
+ 
+ distclean: clean
+ 
