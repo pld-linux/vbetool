@@ -1,19 +1,19 @@
 Summary:	vbetool - run real-mode video BIOS code to alter hardware state
 Summary(pl):	vbetool - modyfikacja trybu karty graficznej za pomoc± jej BIOS-u
 Name:		vbetool
-Version:	0.4
+Version:	0.5
 Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://www.srcf.ucam.org/~mjg59/vbetool/%{name}_%{version}-1.tar.gz
-# Source0-md5:	f8b52980603f458c125026fd9c97b7b0
+# Source0-md5:	950a87f99d17bc4f4ced73cec7103859
 Patch0:		%{name}-Makefile.patch
+Patch1:		%{name}-opt.patch
 URL:		http://freshmeat.net/projects/vbetool/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	libtool
 BuildRequires:	pciutils-devel
-ExclusiveArch:	%{ix86}
+ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -31,20 +31,22 @@ zwiêkszeniu szans w³a¶ciwego odtworzenia stanu grafiki po u¶pieniu
 przez ACPI S3.
 
 %prep
-%setup -q
+%setup -q -n %{name}-0.4
 %patch0 -p1
+%patch1 -p1
 
 %build
-%{__libtoolize}
 %{__aclocal}
 %{__autoconf}
-%{__autoheader}
 %{__automake}
-%configure
+%configure \
+%ifnarch %{ix86}
+	--with-x86emu
+%endif
 
 %{__make} \
-	CFLAGS="%{rpmcflags}" \
-	LDFLAGS="%{rpmldflags}"
+	CC="%{__cc}" \
+	OPT="%{rpmcflags}"
 
 %install
 rm -rf $RPM_BUILD_ROOT
