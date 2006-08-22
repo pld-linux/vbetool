@@ -1,14 +1,13 @@
 Summary:	vbetool - run real-mode video BIOS code to alter hardware state
 Summary(pl):	vbetool - modyfikacja trybu karty graficznej za pomoc± jej BIOS-u
 Name:		vbetool
-Version:	0.5
+Version:	0.7
 Release:	1
 License:	GPL
 Group:		Applications
 Source0:	http://www.srcf.ucam.org/~mjg59/vbetool/%{name}_%{version}-1.tar.gz
-# Source0-md5:	950a87f99d17bc4f4ced73cec7103859
-Patch0:		%{name}-Makefile.patch
-Patch1:		%{name}-opt.patch
+# Source0-md5:	1756f2e71ceaef217220e8e482fce835
+Patch0:		%{name}-opt.patch
 URL:		http://freshmeat.net/projects/vbetool/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -31,9 +30,8 @@ zwiêkszeniu szans w³a¶ciwego odtworzenia stanu grafiki po u¶pieniu
 przez ACPI S3.
 
 %prep
-%setup -q -n %{name}-0.4
+%setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal}
