@@ -13,6 +13,7 @@ URL:		http://freshmeat.net/projects/vbetool/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	pciutils-devel
+BuildRequires:	zlib-devel
 ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
