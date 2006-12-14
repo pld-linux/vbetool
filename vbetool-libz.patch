@@ -1,0 +1,11 @@
+--- vbetool-0.7/Makefile.am.orig	2006-12-14 14:04:07.000000000 +0100
++++ vbetool-0.7/Makefile.am	2006-12-14 14:04:17.000000000 +0100
+@@ -10,7 +10,7 @@
+ else
+ x86 = lrmi.c x86-common.c
+ x86lib = ""
+-vbetool_LDADD = $(libdir)/libpci.a
++vbetool_LDADD = $(libdir)/libpci.a -lz
+ endif
+ 
+ man_MANS = vbetool.1
