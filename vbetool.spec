@@ -1,5 +1,5 @@
 Summary:	vbetool - run real-mode video BIOS code to alter hardware state
-Summary(pl.UTF-8):   vbetool - modyfikacja trybu karty graficznej za pomocą jej BIOS-u
+Summary(pl.UTF-8):	vbetool - modyfikacja trybu karty graficznej za pomocą jej BIOS-u
 Name:		vbetool
 Version:	0.7
 Release:	2
