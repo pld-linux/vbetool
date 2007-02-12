@@ -1,5 +1,5 @@
 Summary:	vbetool - run real-mode video BIOS code to alter hardware state
-Summary(pl):	vbetool - modyfikacja trybu karty graficznej za pomoc± jej BIOS-u
+Summary(pl.UTF-8):   vbetool - modyfikacja trybu karty graficznej za pomocÄ… jej BIOS-u
 Name:		vbetool
 Version:	0.7
 Release:	2
@@ -24,11 +24,11 @@ attempt to initialize the video card from scratch. It exists primarily
 in order to increase the chances of successfully recovering video
 state after an ACPI S3 suspend.
 
-%description -l pl
-vbetool u¿ywa lrmi do uruchamiania kodu BIOS-u karty graficznej.
-Aktualnie potrafi zmieniaæ stany DPMS, zapisywaæ/odtwarzaæ stan karty
-graficznej oraz próbowaæ zainicjowaæ kartê od zera. S³u¿y g³ównie
-zwiêkszeniu szans w³a¶ciwego odtworzenia stanu grafiki po u¶pieniu
+%description -l pl.UTF-8
+vbetool uÅ¼ywa lrmi do uruchamiania kodu BIOS-u karty graficznej.
+Aktualnie potrafi zmieniaÄ‡ stany DPMS, zapisywaÄ‡/odtwarzaÄ‡ stan karty
+graficznej oraz prÃ³bowaÄ‡ zainicjowaÄ‡ kartÄ™ od zera. SÅ‚uÅ¼y gÅ‚Ã³wnie
+zwiÄ™kszeniu szans wÅ‚aÅ›ciwego odtworzenia stanu grafiki po uÅ›pieniu
 przez ACPI S3.
 
 %prep
