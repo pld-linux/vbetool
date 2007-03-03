@@ -1,20 +1,19 @@
 Summary:	vbetool - run real-mode video BIOS code to alter hardware state
 Summary(pl.UTF-8):	vbetool - modyfikacja trybu karty graficznej za pomocą jej BIOS-u
 Name:		vbetool
-Version:	0.7
-Release:	2
+Version:	1.0
+Release:	1
 License:	GPL
 Group:		Applications
-Source0:	http://www.srcf.ucam.org/~mjg59/vbetool/%{name}_%{version}-1.tar.gz
-# Source0-md5:	1756f2e71ceaef217220e8e482fce835
-Patch0:		%{name}-opt.patch
-Patch1:		%{name}-libz.patch
-URL:		http://freshmeat.net/projects/vbetool/
+Source0:	http://www.codon.org.uk/~mjg59/vbetool/download/%{name}-%{version}.tar.gz
+# Source0-md5:	e57b5475b8200e3c44df7f53f0fbdc72
+Patch0:		%{name}-libz.patch
+URL:		http://www.codon.org.uk/~mjg59/vbetool/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	libx86-devel
 BuildRequires:	pciutils-devel
 BuildRequires:	zlib-devel
-ExclusiveArch:	%{ix86} %{x8664}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -34,7 +33,6 @@ przez ACPI S3.
 %prep
 %setup -q
 %patch0 -p1
-%patch1 -p1
 
 %build
 %{__aclocal}
