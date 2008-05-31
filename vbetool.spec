@@ -7,7 +7,6 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.codon.org.uk/~mjg59/vbetool/download/%{name}-%{version}.tar.gz
 # Source0-md5:	ffb03b118867a02296d7449019ad8846
-#Patch0:		%{name}-libz.patch
 URL:		http://www.codon.org.uk/~mjg59/vbetool/
 BuildRequires:	autoconf
 BuildRequires:	automake
