@@ -7,12 +7,13 @@ License:	GPL v2
 Group:		Applications/System
 Source0:	http://www.codon.org.uk/~mjg59/vbetool/download/%{name}-%{version}.tar.gz
 # Source0-md5:	ffb03b118867a02296d7449019ad8846
-Patch0:		%{name}-libz.patch
+#Patch0:		%{name}-libz.patch
 URL:		http://www.codon.org.uk/~mjg59/vbetool/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	libx86-devel
-BuildRequires:	pciutils-devel
+BuildRequires:	pciutils-devel >= 3.0.0
+BuildRequires:	pkgconfig
 BuildRequires:	zlib-devel
 # it's supposed to be arch independant; see libx86.spec
 ExclusiveArch: %{ix86} %{x8664}
@@ -34,7 +35,6 @@ przez ACPI S3.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__aclocal}
@@ -47,13 +47,16 @@ przez ACPI S3.
 
 %{__make} \
 	CC="%{__cc}" \
-	OPT="%{rpmcflags}"
+	OPT="%{rpmcflags}" \
+	vbetool_DEPENDENCIES= \
+	vbetool_LDADD=$(pkg-config --libs libpci)
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
 %{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+	DESTDIR=$RPM_BUILD_ROOT \
+	vbetool_DEPENDENCIES=
 
 %clean
 rm -rf $RPM_BUILD_ROOT
